@@ -1,0 +1,852 @@
+{
+  "project": {
+    "name": "My Growth Model",
+    "description": "User acquisition funnel model",
+    "branding": {
+      "name": "Otomato",
+      "url": "https://otomato.xyz"
+    },
+    "goals": {
+      "primary": "10,000 active users",
+      "deadline": "Q4 2026"
+    }
+  },
+  "meta": {
+    "current": 0,
+    "target": 3000,
+    "deadline": "2026-06-30",
+    "lastUpdated": "2026-02-09T20:28:00.195Z"
+  },
+  "scenario": 1,
+  "platforms": [
+    "web",
+    "mobile",
+    "both"
+  ],
+  "channels": [
+    {
+      "id": "organic_social",
+      "name": "Organic Social",
+      "description": "Twitter/X + LinkedIn content",
+      "platform": "both",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "Impressions",
+          "value": 100000,
+          "rate": null
+        },
+        {
+          "label": "Engagement",
+          "value": 3000,
+          "rate": 3
+        },
+        {
+          "label": "Clicks",
+          "value": 450,
+          "rate": 15
+        },
+        {
+          "label": "Signups",
+          "value": 135,
+          "rate": 50
+        },
+        {
+          "label": "Activated",
+          "value": 95,
+          "rate": 70
+        }
+      ],
+      "notes": [
+        "Post 3x/week",
+        "Focus on value content"
+      ],
+      "details": {}
+    },
+    {
+      "id": "content_marketing",
+      "name": "Content Marketing",
+      "description": "Blog + SEO",
+      "platform": "web",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "Visitors",
+          "value": 10000,
+          "rate": null
+        },
+        {
+          "label": "Read",
+          "value": 4000,
+          "rate": 40
+        },
+        {
+          "label": "Click CTA",
+          "value": 400,
+          "rate": 10
+        },
+        {
+          "label": "Signups",
+          "value": 120,
+          "rate": 30
+        },
+        {
+          "label": "Activated",
+          "value": 84,
+          "rate": 70
+        }
+      ],
+      "notes": [
+        "2 posts/week",
+        "SEO keywords"
+      ],
+      "details": {}
+    },
+    {
+      "id": "paid_ads",
+      "name": "Paid Ads",
+      "description": "$5K monthly budget",
+      "platform": "both",
+      "confidence": "low",
+      "funnel": [
+        {
+          "label": "Impressions",
+          "value": 500000,
+          "rate": null
+        },
+        {
+          "label": "Clicks",
+          "value": 5000,
+          "rate": 1
+        },
+        {
+          "label": "Signups",
+          "value": 250,
+          "rate": 5
+        },
+        {
+          "label": "Activated",
+          "value": 125,
+          "rate": 50
+        }
+      ],
+      "notes": [
+        "Google + Meta Ads",
+        "Focus on retargeting"
+      ],
+      "details": {}
+    },
+    {
+      "id": "referral",
+      "name": "Referral Program",
+      "description": "User referral loop",
+      "platform": "web",
+      "confidence": "low",
+      "funnel": [
+        {
+          "label": "Active Users",
+          "value": 500,
+          "rate": null
+        },
+        {
+          "label": "Share",
+          "value": 50,
+          "rate": 10
+        },
+        {
+          "label": "Invites Clicked",
+          "value": 75,
+          "rate": 150
+        },
+        {
+          "label": "Signups",
+          "value": 38,
+          "rate": 50
+        },
+        {
+          "label": "Activated",
+          "value": 30,
+          "rate": 80
+        }
+      ],
+      "notes": [
+        "Reward: 1 month free"
+      ],
+      "details": {}
+    },
+    {
+      "id": "seo_1770668823495",
+      "name": "SEO",
+      "description": "New channel",
+      "platform": "mobile",
+      "confidence": "high",
+      "funnel": [
+        {
+          "label": "Top",
+          "value": 1000,
+          "rate": null
+        },
+        {
+          "label": "Step 1",
+          "value": 500,
+          "rate": 24
+        },
+        {
+          "label": "Activated",
+          "value": 350,
+          "rate": 70
+        }
+      ],
+      "notes": [
+        {
+          "date": "2026-02-09",
+          "text": "search console has been set up"
+        }
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "launch",
+      "name": "Launch Phase",
+      "dates": "Week 1-2",
+      "emoji": "🚀",
+      "color": "var(--accent)",
+      "description": "Initial launch activities",
+      "channels": [
+        "organic_social",
+        "content_marketing"
+      ]
+    },
+    {
+      "id": "growth",
+      "name": "Growth Phase",
+      "dates": "Week 3-6",
+      "emoji": "📈",
+      "color": "var(--success)",
+      "description": "Scale acquisition channels",
+      "channels": [
+        "paid_ads",
+        "referral"
+      ]
+    }
+  ],
+  "weekly": [
+    {
+      "id": "w1",
+      "name": "Week 1",
+      "dates": "Week 1",
+      "target": 100,
+      "actual": null,
+      "current": true,
+      "note": "Launch"
+    },
+    {
+      "id": "w2",
+      "name": "Week 2",
+      "dates": "Week 2",
+      "target": 200,
+      "actual": null,
+      "current": false,
+      "note": "Ramp up"
+    },
+    {
+      "id": "w3",
+      "name": "Week 3",
+      "dates": "Week 3",
+      "target": 300,
+      "actual": null,
+      "current": false,
+      "note": "Paid starts"
+    },
+    {
+      "id": "w4",
+      "name": "Week 4",
+      "dates": "Week 4",
+      "target": 400,
+      "actual": null,
+      "current": false,
+      "note": "Month 1"
+    }
+  ],
+  "projection": {
+    "settings": {
+      "startUsers": 500,
+      "organicRate": 2,
+      "churnRate": 1,
+      "kFactor": 0.05
+    },
+    "weeks": [
+      {
+        "id": "w1",
+        "name": "W1",
+        "month": 1,
+        "note": "Launch"
+      },
+      {
+        "id": "w2",
+        "name": "W2",
+        "month": 1,
+        "note": "Week 2"
+      },
+      {
+        "id": "w3",
+        "name": "W3",
+        "month": 1,
+        "note": "Week 3"
+      },
+      {
+        "id": "w4",
+        "name": "W4",
+        "month": 1,
+        "note": "Month 1"
+      },
+      {
+        "id": "w4",
+        "name": "W5",
+        "month": 2
+      },
+      {
+        "id": "w5",
+        "name": "W6",
+        "month": 2
+      },
+      {
+        "id": "w6",
+        "name": "W7",
+        "month": 2
+      },
+      {
+        "id": "w7",
+        "name": "W8",
+        "month": 2
+      },
+      {
+        "id": "w8",
+        "name": "W9",
+        "month": 3
+      },
+      {
+        "id": "w9",
+        "name": "W10",
+        "month": 3
+      },
+      {
+        "id": "w10",
+        "name": "W11",
+        "month": 3
+      },
+      {
+        "id": "w11",
+        "name": "W12",
+        "month": 3
+      },
+      {
+        "id": "w12",
+        "name": "W13",
+        "month": 4
+      },
+      {
+        "id": "w13",
+        "name": "W14",
+        "month": 4
+      },
+      {
+        "id": "w14",
+        "name": "W15",
+        "month": 4
+      },
+      {
+        "id": "w15",
+        "name": "W16",
+        "month": 4
+      },
+      {
+        "id": "w16",
+        "name": "W17",
+        "month": 5
+      },
+      {
+        "id": "w17",
+        "name": "W18",
+        "month": 5
+      },
+      {
+        "id": "w18",
+        "name": "W19",
+        "month": 5
+      }
+    ],
+    "channelMultipliers": {
+      "organic_social": [
+        0.1,
+        0.15000000000000002,
+        0.2,
+        0.25,
+        0.30000000000000004,
+        0.35,
+        0.4,
+        0.45000000000000007,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "content_marketing": [
+        0.25,
+        0.2,
+        0.3,
+        0.3,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "paid_ads": [
+        0,
+        0.2,
+        0.4,
+        0.4,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "referral": [
+        0,
+        0,
+        0.2,
+        0.3,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "seo_1770668823495": [
+        0.1,
+        0.15000000000000002,
+        0.2,
+        0.25,
+        0.30000000000000004,
+        0.35,
+        0.4,
+        0.45000000000000007,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ]
+    }
+  },
+  "notes": [
+    {
+      "date": "2026-01-01",
+      "text": "Replace this file with your own data"
+    }
+  ],
+  "financial": {
+    "settings": {
+      "currency": "USD",
+      "projectionMonths": 12,
+      "scenario": 1
+    },
+    "activeUserPercent": 70,
+    "b2c": {
+      "enabled": true,
+      "launchDate": 2,
+      "pricing": {
+        "monthly": 10,
+        "annual": 96,
+        "annualDiscount": 20
+      },
+      "assumptions": {
+        "conversionRate": 3,
+        "churnRate": 5,
+        "daysToConvert": 14,
+        "activeUserPercent": 70
+      }
+    },
+    "b2b": {
+      "enabled": true,
+      "launchDate": 6,
+      "costPerUser": 0.4,
+      "assumptions": {
+        "addressablePercent": 80
+      }
+    },
+    "scenarios": {
+      "conservative": {
+        "multiplier": 0.7,
+        "b2cConversion": 2,
+        "b2bFillRate": 10,
+        "b2bCampaigns": 1
+      },
+      "base": {
+        "multiplier": 1,
+        "b2cConversion": 3,
+        "b2bFillRate": 15,
+        "b2bCampaigns": 2
+      },
+      "optimistic": {
+        "multiplier": 1.3,
+        "b2cConversion": 5,
+        "b2bFillRate": 25,
+        "b2bCampaigns": 4
+      }
+    },
+    "campaigns": [
+      {
+        "id": "campaign_1770666417050",
+        "name": "My first customer",
+        "client": "Google",
+        "status": "active",
+        "notes": "",
+        "monthlyPlan": {
+          "2026-02": 1,
+          "2026-03": 1,
+          "2026-04": 1,
+          "2026-06": 1
+        }
+      }
+    ],
+    "customStreams": [
+      {
+        "id": "b2c-premium",
+        "name": "B2C Premium",
+        "type": "user_based",
+        "weeklyPrice": 2.5,
+        "conversionRate": 3,
+        "churnRate": 5,
+        "launchWeek": 2,
+        "enabled": true,
+        "color": "#6366f1",
+        "_premiumUsers": 259,
+        "costPerUser": 0.4,
+        "monthlyPlan": {}
+      },
+      {
+        "id": "campaign-revenue",
+        "name": "Campaign Revenue",
+        "type": "campaign",
+        "costPerUser": 0.4,
+        "monthlyPlan": {
+          "0": 0,
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 3,
+          "5": 4
+        },
+        "launchWeek": 6,
+        "enabled": true,
+        "color": "#22c55e",
+        "_premiumUsers": 0
+      },
+      {
+        "id": "stream_1770665507257",
+        "name": "Partnership",
+        "type": "fixed",
+        "launchWeek": 3,
+        "enabled": true,
+        "color": "#f59e0b",
+        "monthlyAmount": 100,
+        "_premiumUsers": 0
+      }
+    ],
+    "expenses": [
+      {
+        "id": "expense_1770666372499",
+        "name": "Servers",
+        "monthlyAmount": 50,
+        "launchWeek": 0,
+        "enabled": true,
+        "notes": "",
+        "monthlyRatio": 1
+      },
+      {
+        "id": "expense_1770666392932",
+        "name": "Salaries",
+        "monthlyAmount": 2000,
+        "launchWeek": 0,
+        "enabled": true,
+        "notes": "",
+        "monthlyRatio": 1
+      }
+    ]
+  },
+  "snapshots": [
+    {
+      "id": "snap_1770665413954",
+      "date": "2026-02-09T19:30:13.953Z",
+      "label": "Feb 9 plan",
+      "visible": true,
+      "projection": [
+        {
+          "week": "W1",
+          "activeUsers": 546
+        },
+        {
+          "week": "W2",
+          "activeUsers": 650
+        },
+        {
+          "week": "W3",
+          "activeUsers": 789
+        },
+        {
+          "week": "W4",
+          "activeUsers": 939
+        },
+        {
+          "week": "W5",
+          "activeUsers": 1030
+        },
+        {
+          "week": "W6",
+          "activeUsers": 1127
+        },
+        {
+          "week": "W7",
+          "activeUsers": 1229
+        },
+        {
+          "week": "W8",
+          "activeUsers": 1337
+        },
+        {
+          "week": "W9",
+          "activeUsers": 1452
+        },
+        {
+          "week": "W10",
+          "activeUsers": 1573
+        },
+        {
+          "week": "W11",
+          "activeUsers": 1701
+        },
+        {
+          "week": "W12",
+          "activeUsers": 1837
+        },
+        {
+          "week": "W13",
+          "activeUsers": 1982
+        },
+        {
+          "week": "W14",
+          "activeUsers": 2135
+        }
+      ]
+    },
+    {
+      "id": "snap_1770666046936",
+      "date": "2026-02-09T19:40:46.936Z",
+      "label": "Feb 9 plan",
+      "visible": true,
+      "projection": [
+        {
+          "week": "W1",
+          "activeUsers": 533
+        },
+        {
+          "week": "W2",
+          "activeUsers": 632
+        },
+        {
+          "week": "W3",
+          "activeUsers": 784
+        },
+        {
+          "week": "W4",
+          "activeUsers": 955
+        },
+        {
+          "week": "W5",
+          "activeUsers": 1083
+        },
+        {
+          "week": "W6",
+          "activeUsers": 1227
+        },
+        {
+          "week": "W7",
+          "activeUsers": 1388
+        },
+        {
+          "week": "W8",
+          "activeUsers": 1566
+        },
+        {
+          "week": "W9",
+          "activeUsers": 1762
+        },
+        {
+          "week": "W10",
+          "activeUsers": 1970
+        },
+        {
+          "week": "W11",
+          "activeUsers": 2191
+        },
+        {
+          "week": "W12",
+          "activeUsers": 2426
+        },
+        {
+          "week": "W13",
+          "activeUsers": 2675
+        },
+        {
+          "week": "W14",
+          "activeUsers": 2939
+        },
+        {
+          "week": "W15",
+          "activeUsers": 3219
+        },
+        {
+          "week": "W16",
+          "activeUsers": 3515
+        },
+        {
+          "week": "W17",
+          "activeUsers": 3829
+        },
+        {
+          "week": "W18",
+          "activeUsers": 4162
+        },
+        {
+          "week": "W19",
+          "activeUsers": 4514
+        }
+      ]
+    }
+  ],
+  "actuals": [
+    {
+      "week": "W1",
+      "activeUsers": null
+    },
+    {
+      "week": "W2",
+      "activeUsers": null
+    },
+    {
+      "week": "W3",
+      "activeUsers": null
+    },
+    {
+      "week": "W4",
+      "activeUsers": null
+    },
+    {
+      "week": "W5",
+      "activeUsers": null
+    },
+    {
+      "week": "W6",
+      "activeUsers": null
+    },
+    {
+      "week": "W7",
+      "activeUsers": null
+    },
+    {
+      "week": "W8",
+      "activeUsers": null
+    },
+    {
+      "week": "W9",
+      "activeUsers": null
+    },
+    {
+      "week": "W10",
+      "activeUsers": null
+    },
+    {
+      "week": "W11",
+      "activeUsers": null
+    },
+    {
+      "week": "W12",
+      "activeUsers": null
+    },
+    {
+      "week": "W13",
+      "activeUsers": null
+    },
+    {
+      "week": "W14",
+      "activeUsers": null
+    },
+    {
+      "week": "W15",
+      "activeUsers": null
+    },
+    {
+      "week": "W16",
+      "activeUsers": null
+    },
+    {
+      "week": "W17",
+      "activeUsers": null
+    },
+    {
+      "week": "W18",
+      "activeUsers": null
+    },
+    {
+      "week": "W19",
+      "activeUsers": null
+    }
+  ]
+}
