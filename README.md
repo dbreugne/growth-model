@@ -2,8 +2,6 @@
 
 A funnel-based acquisition planning tool for modeling user growth across multiple channels.
 
-![Growth Model](image.png)
-
 ---
 
 ## Features
