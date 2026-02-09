@@ -1505,18 +1505,6 @@
                 </div>
             </div>
 
-            <!-- ==================== CHANNEL PROJECTION DETAIL PAGE ==================== -->
-            <div class="page" id="page-channel-projection">
-                <div class="detail-header">
-                    <button class="detail-back" onclick="showPage('projection')">← Back to Projection</button>
-                    <div>
-                        <h1 class="page-title" id="channel-proj-title">Channel Name</h1>
-                        <p class="page-subtitle" id="channel-proj-subtitle">Edit weekly multipliers for this channel</p>
-                    </div>
-                </div>
-                <div id="channel-proj-content"></div>
-            </div>
-
             <!-- ==================== ACTIVATIONS TIMELINE PAGE ==================== -->
             <div class="page" id="page-activations">
                 <div class="page-header">
@@ -3987,7 +3975,7 @@
                 const weeklyActivations = multipliers.map(m => Math.round(maxActivations * m));
                 const totalForChannel = weeklyActivations.reduce((a, b) => a + b, 0);
 
-                bodyHtml += `<tr onclick="showPage('channel-projection', '${ch.id}')" style="cursor: pointer;">`;
+                bodyHtml += `<tr onclick="showPage('channel', '${ch.id}')" style="cursor: pointer;">`;
                 bodyHtml += `
                     <td>
                         <div class="channel-cell">
@@ -4125,105 +4113,6 @@
         }
 
         // Channel Projection Detail
-        function renderChannelProjection(channelId) {
-            const ch = data.channels.find(c => c.id === channelId);
-            if (!ch) return;
-
-            const channelCalc = calcChannel(ch);
-            const maxActivations = channelCalc.activations;
-            const multipliers = data.projection.channelMultipliers[ch.id] || [];
-
-            document.getElementById('channel-proj-title').textContent = ch.name;
-            document.getElementById('channel-proj-subtitle').textContent = `Max activations from funnel: ${fmt(maxActivations)}`;
-
-            const months = [...new Set(data.projection.weeks.map(w => w.month))];
-
-            let html = `
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Weekly Multipliers</span>
-                        <span class="badge badge-draft">Editable</span>
-                    </div>
-                    <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">
-                        Set what % of this channel's max activations (${fmt(maxActivations)}) happens each week.
-                        <br>Example: 0.5 = 50% of max = ${fmt(Math.round(maxActivations * 0.5))} users
-                    </p>
-                    <div style="overflow-x: auto;">
-                        <table class="matrix-table">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    ${months.map(m => {
-                                        const weeksInMonth = data.projection.weeks.filter(w => w.month === m).length;
-                                        return `<th colspan="${weeksInMonth}" style="text-align: center; background: var(--bg-hover);">Month ${m}</th>`;
-                                    }).join('')}
-                                </tr>
-                                <tr>
-                                    <th>Metric</th>
-                                    ${data.projection.weeks.map(w => `<th>${w.name}</th>`).join('')}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Multiplier</td>
-                                    ${data.projection.weeks.map((w, i) => `
-                                        <td>
-                                            <input type="number" class="matrix-editable rate"
-                                                   value="${multipliers[i] || 0}"
-                                                   step="0.05" min="0" max="1"
-                                                   style="width: 55px;"
-                                                   onchange="updateChannelMultiplier('${ch.id}', ${i}, this.value)">
-                                        </td>
-                                    `).join('')}
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: 600;">Activations</td>
-                                    ${data.projection.weeks.map((w, i) => {
-                                        const act = Math.round(maxActivations * (multipliers[i] || 0));
-                                        return `<td style="font-weight: 600; color: var(--success);">${fmt(act)}</td>`;
-                                    }).join('')}
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Quick Presets</span>
-                    </div>
-                    <div class="btn-group" style="flex-wrap: wrap;">
-                        <button class="btn btn-sm" onclick="applyPreset('${ch.id}', 'launch')">Launch Spike</button>
-                        <button class="btn btn-sm" onclick="applyPreset('${ch.id}', 'steady')">Steady State</button>
-                        <button class="btn btn-sm" onclick="applyPreset('${ch.id}', 'ramp')">Slow Ramp</button>
-                        <button class="btn btn-sm" onclick="applyPreset('${ch.id}', 'oneshot')">One-Shot</button>
-                        <button class="btn btn-sm" onclick="applyPreset('${ch.id}', 'zero')">Zero All</button>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">Channel Summary</span>
-                    </div>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-label">Max (from funnel)</div>
-                            <div class="stat-value">${fmt(maxActivations)}</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-label">Total Projected</div>
-                            <div class="stat-value success">${fmt(multipliers.reduce((sum, m, i) => sum + Math.round(maxActivations * m), 0))}</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-label">Avg Multiplier</div>
-                            <div class="stat-value">${(multipliers.reduce((a, b) => a + b, 0) / multipliers.length).toFixed(2)}×</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.getElementById('channel-proj-content').innerHTML = html;
-        }
 
         function updateChannelMultiplier(channelId, weekIndex, value) {
             if (!data.projection.channelMultipliers[channelId]) {
@@ -4584,7 +4473,6 @@
             if (pageId === 'weekly') renderWeekly();
             if (pageId === 'projection') renderProjection();
             if (pageId === 'snapshots') renderSnapshots();
-            if (pageId === 'channel-projection' && channelId) renderChannelProjection(channelId);
             if (pageId === 'docs') {} // Static page, no render needed
             if (pageId === 'financial') renderFinancial();
             if (pageId === 'campaign' && channelId) renderCampaignDetail(channelId);
