@@ -237,19 +237,14 @@ All data lives in a single JSON file, making it easy to version control, diff, a
 ## File Structure
 
 ```
-otomato-growth-model/
+growth-model/
   index.html              -- Single-page application (all views)
   data.json               -- Current model data (source of truth)
-  example-data.json       -- Example data for reference
   server.js               -- Node.js server for local persistence
-  image.png               -- Screenshot
   netlify.toml            -- Netlify deployment config
   netlify/functions/      -- Netlify serverless functions
     save.mjs
   vercel.json             -- Vercel deployment config
   api/
     save.js               -- Vercel serverless function
-  growth-model-context.md -- Discussion context and channel details
-  financial-model-spec.md -- Financial model specification
-  growth-plan-5k-users.md -- Growth plan documentation
 ```
