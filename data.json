@@ -1,113 +1,296 @@
 {
-  "project": {
-    "name": "My Growth Model",
-    "description": "User acquisition funnel model",
-    "branding": {
-      "name": "Otomato",
-      "url": "https://otomato.xyz"
-    },
-    "goals": {
-      "primary": "10,000 active users",
-      "deadline": "Q4 2026"
-    }
-  },
   "meta": {
-    "current": 0,
-    "target": 3000,
-    "deadline": "2026-06-30",
-    "lastUpdated": "2026-02-09T20:28:00.195Z"
+    "current": 1437,
+    "target": 3500,
+    "deadline": "2026-02-28",
+    "lastUpdated": "2026-02-23T13:07:34.195Z"
   },
-  "scenario": 1,
-  "platforms": [
-    "web",
-    "mobile",
-    "both"
-  ],
+  "scenario": null,
   "channels": [
     {
-      "id": "organic_social",
-      "name": "Organic Social",
-      "description": "Twitter/X + LinkedIn content",
-      "platform": "both",
+      "id": "newsletter",
+      "name": "Newsletter Blast",
+      "description": "2,000 newsletter subscribers",
+      "platform": "telegram",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "Subscribers",
+          "value": 2000,
+          "rate": null
+        },
+        {
+          "label": "Open Email",
+          "value": 600,
+          "rate": 25
+        },
+        {
+          "label": "Click CTA",
+          "value": 180,
+          "rate": 3
+        },
+        {
+          "label": "Launch Bot",
+          "value": 90,
+          "rate": 30
+        }
+      ],
+      "notes": [
+        "Starts 10 days after launch (Feb 11)",
+        "Warm audience, high conversion expected"
+      ],
+      "details": {
+        "strategy": "Email blast to existing newsletter subscribers announcing the app launch. Warm audience with high conversion expected.",
+        "timing": "+10 days after launch (Feb 11)",
+        "team": [
+          "Dylan (content)",
+          "Dylan (coordination)"
+        ],
+        "breakdown": [
+          {
+            "label": "Newsletter Subscribers",
+            "value": 2000
+          },
+          {
+            "label": "→ Subscribers (enters funnel)",
+            "value": 2000,
+            "note": "warm audience"
+          }
+        ]
+      }
+    },
+    {
+      "id": "paidads",
+      "name": "Paid Ads",
+      "description": "$500 budget - Twitter/Telegram/Reddit",
+      "platform": "app",
       "confidence": "medium",
       "funnel": [
         {
           "label": "Impressions",
-          "value": 100000,
+          "value": 235000,
           "rate": null
-        },
-        {
-          "label": "Engagement",
-          "value": 3000,
-          "rate": 3
         },
         {
           "label": "Clicks",
-          "value": 450,
-          "rate": 15
+          "value": 750,
+          "rate": 0.3
         },
         {
-          "label": "Signups",
-          "value": 135,
-          "rate": 50
+          "label": "Store Visits",
+          "value": 300,
+          "rate": 13
         },
         {
-          "label": "Activated",
-          "value": 95,
-          "rate": 70
+          "label": "Installs",
+          "value": 90,
+          "rate": 3.5
         }
       ],
       "notes": [
-        "Post 3x/week",
-        "Focus on value content"
+        "$500 budget",
+        "Starts Feb 6 (+5 days after launch)",
+        "80% installs focus, 20% awareness",
+        "Platforms: Twitter 60% / Telegram 30% / Reddit 10%"
       ],
-      "details": {}
+      "details": {
+        "strategy": "Paid acquisition to complement organic growth. Small budget ($500) to test channels and messaging before scaling. Focus on install conversion (80%) over awareness (20%).",
+        "concept": "Main angle: 'All your DeFi positions in one place' / '300 dashboards in 1 app'. Position Otomato as the single source of truth for DeFi users who are tired of checking multiple apps.",
+        "timing": "Starts Feb 6 (+5 days after launch) - gives time for organic buzz first",
+        "team": [
+          "Dylan (campaign management)",
+          "Dylan (budget approval)",
+          "Bagas (ad creatives)"
+        ],
+        "campaign_angles": "ANGLE 1: Dashboard Consolidation\\n- '300 DeFi dashboards. 1 app. Zero setup.'\\n- '10 tabs open? There's a better way.'\\n- Target: Power users with complex portfolios\\n\\nANGLE 2: Pain Point\\n- 'Tired of checking Zapper, DeBank, and 5 other apps?'\\n- 'Your portfolio, unified.'\\n- Target: Active DeFi users\\n\\nANGLE 3: Protection\\n- 'Know before you get liquidated.'\\n- 'Sleep while Otomato watches your positions.'\\n- Target: Leveraged positions / lending users\\n\\nANGLE 4: Simplicity\\n- 'Zero setup. Just paste your wallet.'\\n- 'No wallet connect. No signatures. Just alerts.'\\n- Target: Security-conscious users",
+        "visual_concepts": "VISUAL 1: Split Screen\\n- Left: Chaos (multiple browser tabs, dashboards)\\n- Right: Clean Otomato app showing same info\\n\\nVISUAL 2: Before/After\\n- Before: Anxious trader checking 10 apps\\n- After: Calm notification from Otomato\\n\\nVISUAL 3: App Screenshots\\n- Clean portfolio view\\n- Alert example (health factor warning)\\n- Position detection animation",
+        "target_audiences": "TWITTER:\\n- DeFi Twitter followers\\n- Protocol-specific audiences (AAVE, Hyperliquid users)\\n- Lookalikes from existing power users\\n\\nTELEGRAM:\\n- DeFi group members\\n- Alpha/trading groups\\n- Protocol announcement channels\\n\\nREDDIT:\\n- r/defi, r/ethfinance, r/cryptocurrency\\n- Protocol-specific subreddits\\n- Yield farming communities",
+        "kpis": "Primary: Cost per Install (CPI) - target <$5\\nSecondary: CTR - target >1%\\nTertiary: Activation rate - target >60%\\n\\nSuccess = 100+ installs at <$5 CPI",
+        "checklist": [
+          "Set up Twitter ads account",
+          "Set up Telegram ads (via TON)",
+          "Create 3 ad creative variants per angle",
+          "Define audience targeting for each platform",
+          "Set daily budget caps ($50/day)",
+          "Prepare landing page / app store links",
+          "Set up conversion tracking",
+          "Plan A/B test structure",
+          "Define kill criteria (when to stop underperforming ads)",
+          "Schedule daily performance reviews"
+        ],
+        "breakdown": [
+          {
+            "label": "Budget",
+            "value": "$500"
+          },
+          {
+            "label": "Est. CPM",
+            "value": "$10"
+          },
+          {
+            "label": "→ Impressions",
+            "value": 50000,
+            "note": "enters funnel"
+          }
+        ],
+        "budget_split": "Twitter: $300 (60%)\\nTelegram: $150 (30%)\\nReddit: $50 (10%)\\n\\nRationale: Twitter has best DeFi audience, Telegram for crypto natives, Reddit for testing"
+      }
     },
     {
-      "id": "content_marketing",
-      "name": "Content Marketing",
-      "description": "Blog + SEO",
-      "platform": "web",
-      "confidence": "medium",
+      "id": "protocols",
+      "name": "Protocol Co-Marketing",
+      "description": "Protocol RTs - not confirmed yet",
+      "platform": "app",
+      "confidence": "low",
       "funnel": [
         {
-          "label": "Visitors",
-          "value": 10000,
+          "label": "Impressions",
+          "value": 4000,
           "rate": null
         },
         {
-          "label": "Read",
-          "value": 4000,
-          "rate": 40
+          "label": "Clicks",
+          "value": 60,
+          "rate": 1.5
         },
         {
-          "label": "Click CTA",
-          "value": 400,
-          "rate": 10
+          "label": "Installs",
+          "value": 21,
+          "rate": 35
         },
         {
-          "label": "Signups",
-          "value": 120,
-          "rate": 30
+          "label": "Success Rate",
+          "value": 0,
+          "rate": 70
         },
         {
           "label": "Activated",
-          "value": 84,
+          "value": 15,
           "rate": 70
         }
       ],
       "notes": [
-        "2 posts/week",
-        "SEO keywords"
+        "NOT CONFIRMED - placeholder only",
+        "Owners: Dylan, Clément, Dylan"
       ],
-      "details": {}
+      "details": {
+        "strategy": "Co-marketing with supported protocols. Protocol accounts RT our announcement. NOT CONFIRMED - very low priority.",
+        "timing": "Launch Day (Feb 1)",
+        "team": [
+          "Dylan",
+          "Clément",
+          "Dylan"
+        ],
+        "breakdown": [
+          {
+            "label": "Protocols Participating",
+            "value": 2
+          },
+          {
+            "label": "Avg Reach per Protocol",
+            "value": 10000
+          },
+          {
+            "label": "Impression Rate",
+            "value": "20%"
+          },
+          {
+            "label": "→ Total Impressions",
+            "value": 4000,
+            "note": "enters funnel"
+          }
+        ]
+      }
     },
     {
-      "id": "paid_ads",
-      "name": "Paid Ads",
-      "description": "$5K monthly budget",
+      "id": "powerusers",
+      "name": "Power Users Army",
+      "description": "20 power users posting at launch",
+      "platform": "app",
+      "confidence": "high",
+      "funnel": [
+        {
+          "label": "Total Impressions",
+          "value": 30000,
+          "rate": null
+        },
+        {
+          "label": "Clicks",
+          "value": 500,
+          "rate": 1.7
+        },
+        {
+          "label": "Installs",
+          "value": 50,
+          "rate": 10
+        },
+        {
+          "label": "Activated",
+          "value": 40,
+          "rate": 80
+        }
+      ],
+      "notes": [
+        {
+          "date": "2026-01-15",
+          "text": "60 users, îll bring 30k impressions"
+        },
+        {
+          "date": "2026-01-20",
+          "text": "Add specific incentives"
+        }
+      ],
+      "details": {
+        "strategy": "Hand-picked from top 200 Wrapper rankings. Mix of known influencers + high-value wallets. Active feedback loop. THIS IS THE LAUNCH ARMY.",
+        "timing": "Launch Day (Feb 1) - Coordinated posting at 14:00 UTC",
+        "team": [
+          "Dylan (coordination)",
+          "Dylan (messaging)"
+        ],
+        "checklist": [
+          "Assign posting times to Power Users volunteers",
+          "Create Launch Day Coordination Doc",
+          "Confirm participation from each user",
+          "Prepare FAQ responses for launch day"
+        ],
+        "template": "🚀 LAUNCH DAY PLAYBOOK\\n\\nTimeline (UTC):\\n- 14:00: Official announcement tweet goes live\\n- 14:00-16:00: YOU post about the app (your words, authentic)\\n- 16:00+: Engage with comments, RT each other\\n\\nDO: Be authentic, share real experience\\nDON'T: Copy-paste same text, shill aggressively",
+        "breakdown": [
+          {
+            "label": "Power Users in Group",
+            "value": 60
+          },
+          {
+            "label": "Will Actually Post",
+            "value": 20,
+            "rate": "33%"
+          },
+          {
+            "label": "Avg Followers Each",
+            "value": 2000
+          },
+          {
+            "label": "Total Reach",
+            "value": 40000,
+            "note": "20 × 2K"
+          },
+          {
+            "label": "Impression Rate",
+            "value": "75%"
+          },
+          {
+            "label": "→ Total Impressions",
+            "value": 30000,
+            "note": "enters funnel"
+          }
+        ]
+      }
+    },
+    {
+      "id": "fundraise",
+      "name": "Fundraise Announcement",
+      "description": "€2M raise from Improbable.io (a16z/SoftBank backed)",
       "platform": "both",
-      "confidence": "low",
+      "confidence": "medium",
       "funnel": [
         {
           "label": "Impressions",
@@ -116,80 +299,279 @@
         },
         {
           "label": "Clicks",
-          "value": 5000,
-          "rate": 1
+          "value": 20000,
+          "rate": 9
         },
         {
-          "label": "Signups",
-          "value": 250,
-          "rate": 5
-        },
-        {
-          "label": "Activated",
-          "value": 125,
+          "label": "website Visits",
+          "value": 10000,
           "rate": 50
+        },
+        {
+          "label": "Installs",
+          "value": 3000,
+          "rate": 5
         }
       ],
       "notes": [
-        "Google + Meta Ads",
-        "Focus on retargeting"
+        "PLANNED: February 20th",
+        "2M press reach → 10 crypto media pickups → 1M impressions",
+        "High confidence - major news"
       ],
-      "details": {}
+      "details": {
+        "strategy": "MASSIVE impact expected. €2M raised from Improbable.io (Top 20 UK tech, $3B+ valuation, backed by a16z/SoftBank). Video announcement to create awareness.",
+        "timing": "February 20th - Coordinated for maximum impact",
+        "team": [
+          "Dylan (coordination)",
+          "Clément (investor relations)",
+          "Dylan (content)",
+          "Bagas (video assets)"
+        ],
+        "checklist": [
+          "Coordinate timing with Improbable.io",
+          "Prepare video announcement",
+          "Draft press release",
+          "Contact 2-3 crypto newsletters for coverage",
+          "Prepare social media thread (20+ tweets)",
+          "Coordinate with protocols for amplification"
+        ],
+        "confidential": "Amount: €2M raised | Lead investor: Improbable.io | Status: Not yet public",
+        "breakdown": [
+          {
+            "label": "Press Reach",
+            "value": "2M"
+          },
+          {
+            "label": "Crypto Media Pickups",
+            "value": 10
+          },
+          {
+            "label": "Avg Reach per Media",
+            "value": "100K"
+          },
+          {
+            "label": "→ Total Impressions",
+            "value": 1000000,
+            "note": "enters funnel"
+          }
+        ]
+      }
     },
     {
       "id": "referral",
-      "name": "Referral Program",
-      "description": "User referral loop",
-      "platform": "web",
-      "confidence": "low",
-      "funnel": [
-        {
-          "label": "Active Users",
-          "value": 500,
-          "rate": null
-        },
-        {
-          "label": "Share",
-          "value": 50,
-          "rate": 10
-        },
-        {
-          "label": "Invites Clicked",
-          "value": 75,
-          "rate": 150
-        },
-        {
-          "label": "Signups",
-          "value": 38,
-          "rate": 50
-        },
-        {
-          "label": "Activated",
-          "value": 30,
-          "rate": 80
-        }
-      ],
-      "notes": [
-        "Reward: 1 month free"
-      ],
-      "details": {}
-    },
-    {
-      "id": "seo_1770668823495",
-      "name": "SEO",
-      "description": "New channel",
-      "platform": "mobile",
+      "name": "Referral Loop",
+      "description": "Simple share button + counter (no rewards)",
+      "platform": "app",
       "confidence": "high",
       "funnel": [
         {
+          "label": "Invite Clicks",
+          "value": 150,
+          "rate": null
+        },
+        {
+          "label": "Sharing",
+          "value": 75,
+          "rate": 30
+        },
+        {
+          "label": "Installs",
+          "value": 30,
+          "rate": 60
+        }
+      ],
+      "notes": [
+        "Minimal MVP: share button + invite counter",
+        "No rewards or incentives",
+        "Low priority - nice to have"
+      ],
+      "details": {
+        "strategy": "Minimal referral mechanic. Just a share button in the app + counter showing how many friends you've invited. No rewards, no complexity. Low effort, low expected return.",
+        "timing": "Available at launch, builds over time as user base grows",
+        "team": [
+          "Truong (frontend button)",
+          "Hung (tracking backend)"
+        ],
+        "checklist": [
+          "Add share button to app (profile or settings)",
+          "Generate unique referral link per user",
+          "Track invite counter per user",
+          "Show counter in app UI"
+        ],
+        "breakdown": [
+          {
+            "label": "Active Users",
+            "value": 2000
+          },
+          {
+            "label": "Tap Share",
+            "value": 60,
+            "rate": "3%"
+          },
+          {
+            "label": "Invites Each",
+            "value": 2.5
+          },
+          {
+            "label": "→ Invite Clicks",
+            "value": 150,
+            "note": "enters funnel"
+          }
+        ]
+      }
+    },
+    {
+      "id": "telegram_outreach_1769595966486",
+      "name": "Telegram outreach",
+      "description": "cold dm users",
+      "platform": "both",
+      "confidence": "medium",
+      "funnel": [
+        {
           "label": "Top",
-          "value": 1000,
+          "value": 10000,
           "rate": null
         },
         {
           "label": "Step 1",
           "value": 500,
-          "rate": 24
+          "rate": 5
+        },
+        {
+          "label": "Activated",
+          "value": 350,
+          "rate": 50
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "kol",
+      "name": "KOL",
+      "description": "Key Opinion Leader partnerships",
+      "platform": "both",
+      "confidence": "high",
+      "funnel": [
+        {
+          "label": "Impressions",
+          "value": 10000,
+          "rate": null
+        },
+        {
+          "label": "View",
+          "value": 500,
+          "rate": 20
+        },
+        {
+          "label": "Installs",
+          "value": 100,
+          "rate": 20
+        },
+        {
+          "label": "Activated",
+          "value": 70,
+          "rate": 10
+        }
+      ],
+      "notes": [
+        {
+          "date": "2026-02-03",
+          "text": "Small KOLs activation, Beef.hype - 0xrequired"
+        }
+      ],
+      "details": {}
+    },
+    {
+      "id": "seo_1768940912035",
+      "name": "SEO",
+      "description": "Google Search _ ChatGPT search",
+      "platform": "app",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "Top",
+          "value": 500,
+          "rate": null
+        },
+        {
+          "label": "Read the website",
+          "value": 500,
+          "rate": 30
+        },
+        {
+          "label": "Activated",
+          "value": 350,
+          "rate": 10
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "product_hunt_1768941159818",
+      "name": "Product Hunt",
+      "description": "Deploy on product Hunt",
+      "platform": "both",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "Top",
+          "value": 20000,
+          "rate": null
+        },
+        {
+          "label": "Visit",
+          "value": 500,
+          "rate": 30
+        },
+        {
+          "label": "Activated",
+          "value": 350,
+          "rate": 2
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "airdrop_checker_1771319180473",
+      "name": "Airdrop checker",
+      "description": "growth tool",
+      "platform": "both",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "View",
+          "value": 50000,
+          "rate": null
+        },
+        {
+          "label": "Click",
+          "value": 500,
+          "rate": 10
+        },
+        {
+          "label": "Launch telegram bot",
+          "value": 350,
+          "rate": 30
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "all_the_team_push_1768949748360",
+      "name": "All the team PUSH",
+      "description": "Ask your friend, contact telegram, discord etc to launch otomato",
+      "platform": "both",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "Top",
+          "value": 600,
+          "rate": null
+        },
+        {
+          "label": "Step 1",
+          "value": 500,
+          "rate": 50
         },
         {
           "label": "Activated",
@@ -199,209 +581,457 @@
       ],
       "notes": [
         {
-          "date": "2026-02-09",
-          "text": "search console has been set up"
+          "date": "2026-02-03",
+          "text": "coordoné lancement de l'app"
         }
-      ]
-    }
-  ],
-  "phases": [
-    {
-      "id": "launch",
-      "name": "Launch Phase",
-      "dates": "Week 1-2",
-      "emoji": "🚀",
-      "color": "var(--accent)",
-      "description": "Initial launch activities",
-      "channels": [
-        "organic_social",
-        "content_marketing"
       ]
     },
     {
-      "id": "growth",
-      "name": "Growth Phase",
-      "dates": "Week 3-6",
-      "emoji": "📈",
-      "color": "var(--success)",
-      "description": "Scale acquisition channels",
-      "channels": [
-        "paid_ads",
-        "referral"
-      ]
+      "id": "activate_crm_contacts_1768949817560",
+      "name": "Activate CRM contacts",
+      "description": "New channel",
+      "platform": "both",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "Top",
+          "value": 239,
+          "rate": null
+        },
+        {
+          "label": "Step 1",
+          "value": 500,
+          "rate": 50
+        },
+        {
+          "label": "Activated",
+          "value": 350,
+          "rate": 70
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "autodm_followers",
+      "name": "Auto-DM New Followers",
+      "description": "DM people who follow Otomato + founder accounts",
+      "platform": "both",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "DMs Sent",
+          "value": 300,
+          "rate": null
+        },
+        {
+          "label": "Replies",
+          "value": 30,
+          "rate": 10
+        },
+        {
+          "label": "Clicks",
+          "value": 18,
+          "rate": 60
+        },
+        {
+          "label": "Installs",
+          "value": 10,
+          "rate": 55
+        },
+        {
+          "label": "Activated",
+          "value": 8,
+          "rate": 80
+        }
+      ],
+      "notes": [
+        "Starts mid-February",
+        "Target: new followers of @otomato + @clement + @dylan",
+        "Lower conversion than engagers but still warm"
+      ],
+      "details": {
+        "strategy": "Welcome DM to new followers of Otomato and founder accounts. Introduces the app and invites to try it.",
+        "timing": "Starts mid-February (Feb 15+)",
+        "team": [
+          "Dylan (messaging)",
+          "Jonas (execution)"
+        ],
+        "accounts": [
+          "@otomato_xyz",
+          "@clement (founder)",
+          "@dylan (founder)"
+        ]
+      }
+    },
+    {
+      "id": "growth_tool_q3_1771356186901",
+      "name": "Growth tool Q3",
+      "description": "New channel",
+      "platform": "both",
+      "confidence": "medium",
+      "funnel": [
+        {
+          "label": "Engagment",
+          "value": 100000,
+          "rate": null
+        },
+        {
+          "label": "Website visit",
+          "value": 500,
+          "rate": 30
+        },
+        {
+          "label": "launched",
+          "value": 350,
+          "rate": 5
+        }
+      ],
+      "notes": []
     }
   ],
   "weekly": [
     {
-      "id": "w1",
-      "name": "Week 1",
-      "dates": "Week 1",
-      "target": 100,
-      "actual": null,
+      "id": "w0",
+      "name": "Pre-Launch 1",
+      "dates": "Jan 15-21",
+      "target": 0,
+      "actual": 1443,
       "current": true,
-      "note": "Launch"
+      "note": "Prep only"
+    },
+    {
+      "id": "w1",
+      "name": "Pre-Launch 2",
+      "dates": "Jan 22-31",
+      "target": 60,
+      "actual": 0,
+      "current": false,
+      "note": "Power Users test"
     },
     {
       "id": "w2",
-      "name": "Week 2",
-      "dates": "Week 2",
-      "target": 200,
+      "name": "Launch Week",
+      "dates": "Feb 1-7",
+      "target": 850,
       "actual": null,
       "current": false,
-      "note": "Ramp up"
+      "note": "APP LAUNCH"
     },
     {
       "id": "w3",
-      "name": "Week 3",
-      "dates": "Week 3",
-      "target": 300,
+      "name": "Feb Week 2",
+      "dates": "Feb 8-14",
+      "target": 500,
       "actual": null,
       "current": false,
-      "note": "Paid starts"
+      "note": "Growth tools START (+10d)"
     },
     {
       "id": "w4",
-      "name": "Week 4",
-      "dates": "Week 4",
+      "name": "Feb Week 3",
+      "dates": "Feb 15-21",
       "target": 400,
       "actual": null,
       "current": false,
-      "note": "Month 1"
+      "note": "🚀 FUNDRAISE Feb 20"
+    },
+    {
+      "id": "w5",
+      "name": "Feb Week 4",
+      "dates": "Feb 22-28",
+      "target": 363,
+      "actual": null,
+      "current": false,
+      "note": "FEB TARGET: 3,500"
+    },
+    {
+      "id": "w6",
+      "name": "Mar Week 1",
+      "dates": "Mar 1-7",
+      "target": 350,
+      "actual": null,
+      "current": false,
+      "note": "Contest ends Mar 2"
+    },
+    {
+      "id": "w7",
+      "name": "Mar Week 2",
+      "dates": "Mar 8-14",
+      "target": 350,
+      "actual": null,
+      "current": false,
+      "note": "Post-contest retention"
+    },
+    {
+      "id": "w8",
+      "name": "Mar Week 3",
+      "dates": "Mar 15-21",
+      "target": 400,
+      "actual": null,
+      "current": false,
+      "note": "Post-fundraise momentum"
+    },
+    {
+      "id": "w9",
+      "name": "Mar Week 4",
+      "dates": "Mar 22-31",
+      "target": 400,
+      "actual": null,
+      "current": false,
+      "note": "MAR TARGET: 5,000"
     }
   ],
   "projection": {
     "settings": {
-      "startUsers": 500,
-      "organicRate": 2,
-      "churnRate": 1,
-      "kFactor": 0.05
+      "startUsers": 1434,
+      "organicRate": 0.25,
+      "churnRate": 3,
+      "kFactor": 0.03
     },
     "weeks": [
       {
+        "id": "w0",
+        "name": "Pre-1",
+        "month": 0,
+        "note": "Jan 15-21 (Prep)"
+      },
+      {
         "id": "w1",
-        "name": "W1",
-        "month": 1,
-        "note": "Launch"
+        "name": "Pre-2",
+        "month": 0,
+        "note": "Jan 22-31 (Prep)"
       },
       {
         "id": "w2",
-        "name": "W2",
+        "name": "Launch",
         "month": 1,
-        "note": "Week 2"
+        "note": "Feb 1-7"
       },
       {
         "id": "w3",
-        "name": "W3",
+        "name": "Feb-2",
         "month": 1,
-        "note": "Week 3"
+        "note": "Feb 8-14 (+10d)"
       },
       {
         "id": "w4",
-        "name": "W4",
+        "name": "Feb-3",
         "month": 1,
-        "note": "Month 1"
-      },
-      {
-        "id": "w4",
-        "name": "W5",
-        "month": 2
+        "note": "Feb 15-21"
       },
       {
         "id": "w5",
+        "name": "Feb-4",
+        "month": 1,
+        "note": "Feb 22-28 - 3,500"
+      },
+      {
+        "id": "w6",
         "name": "W6",
         "month": 2
       },
       {
-        "id": "w6",
+        "id": "w7",
         "name": "W7",
         "month": 2
       },
       {
-        "id": "w7",
+        "id": "w8",
         "name": "W8",
         "month": 2
       },
       {
-        "id": "w8",
+        "id": "w9",
         "name": "W9",
-        "month": 3
+        "month": 2
       },
       {
-        "id": "w9",
+        "id": "w10",
         "name": "W10",
         "month": 3
       },
       {
-        "id": "w10",
+        "id": "w11",
         "name": "W11",
         "month": 3
       },
       {
-        "id": "w11",
+        "id": "w12",
         "name": "W12",
         "month": 3
       },
       {
-        "id": "w12",
+        "id": "w13",
         "name": "W13",
-        "month": 4
+        "month": 3
       },
       {
-        "id": "w13",
+        "id": "w14",
         "name": "W14",
         "month": 4
       },
       {
-        "id": "w14",
+        "id": "w15",
         "name": "W15",
         "month": 4
       },
       {
-        "id": "w15",
+        "id": "w16",
         "name": "W16",
         "month": 4
       },
       {
-        "id": "w16",
+        "id": "w17",
         "name": "W17",
-        "month": 5
+        "month": 4
       },
       {
-        "id": "w17",
+        "id": "w18",
         "name": "W18",
         "month": 5
       },
       {
-        "id": "w18",
+        "id": "w19",
         "name": "W19",
         "month": 5
+      },
+      {
+        "id": "w20",
+        "name": "W20",
+        "month": 5
+      },
+      {
+        "id": "w21",
+        "name": "W21",
+        "month": 5
+      },
+      {
+        "id": "w22",
+        "name": "W22",
+        "month": 6
+      },
+      {
+        "id": "w23",
+        "name": "W23",
+        "month": 6
+      },
+      {
+        "id": "w24",
+        "name": "W24",
+        "month": 6
+      },
+      {
+        "id": "w25",
+        "name": "W25",
+        "month": 6
+      },
+      {
+        "id": "w26",
+        "name": "W26",
+        "month": 7
+      },
+      {
+        "id": "w27",
+        "name": "W27",
+        "month": 7
+      },
+      {
+        "id": "w28",
+        "name": "W28",
+        "month": 7
+      },
+      {
+        "id": "w29",
+        "name": "W29",
+        "month": 7
+      },
+      {
+        "id": "w30",
+        "name": "W30",
+        "month": 8
+      },
+      {
+        "id": "w31",
+        "name": "W31",
+        "month": 8
+      },
+      {
+        "id": "w32",
+        "name": "W32",
+        "month": 8
+      },
+      {
+        "id": "w33",
+        "name": "W33",
+        "month": 8
+      },
+      {
+        "id": "w34",
+        "name": "W34",
+        "month": 9
+      },
+      {
+        "id": "w35",
+        "name": "W35",
+        "month": 9
+      },
+      {
+        "id": "w36",
+        "name": "W36",
+        "month": 9
+      },
+      {
+        "id": "w37",
+        "name": "W38",
+        "month": 9
+      },
+      {
+        "id": "w38",
+        "name": "W39",
+        "month": 10
+      },
+      {
+        "id": "w39",
+        "name": "W40",
+        "month": 10
+      },
+      {
+        "id": "w40",
+        "name": "W41",
+        "month": 10
+      },
+      {
+        "id": "w41",
+        "name": "W42",
+        "month": 10
+      },
+      {
+        "id": "w42",
+        "name": "W43",
+        "month": 11
+      },
+      {
+        "id": "w43",
+        "name": "W44",
+        "month": 11
+      },
+      {
+        "id": "w44",
+        "name": "W45",
+        "month": 11
+      },
+      {
+        "id": "w45",
+        "name": "W46",
+        "month": 11
       }
     ],
     "channelMultipliers": {
-      "organic_social": [
-        0.1,
-        0.15000000000000002,
-        0.2,
-        0.25,
-        0.30000000000000004,
-        0.35,
-        0.4,
-        0.45000000000000007,
-        0.5,
-        0.5,
-        0.5,
-        0.5,
-        0.5,
-        0.1,
-        0.1,
-        0.1,
-        0.1,
-        0.1,
-        0.1
-      ],
-      "content_marketing": [
-        0.25,
-        0.2,
+      "telegram": [
+        0,
+        0,
+        0,
+        1,
         0.3,
         0.3,
         0.1,
@@ -418,13 +1048,161 @@
         0.1,
         0.1,
         0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
         0.1
       ],
-      "paid_ads": [
+      "powerusers": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.1,
+        0.5,
+        0.5,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "protocols": [
+        0,
+        0,
+        0.6,
+        0.3,
+        0.1,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "newsletter": [
+        0.5,
+        0.5,
+        0,
+        0,
         0,
         0.2,
-        0.4,
-        0.4,
+        0,
+        0,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
         0.1,
         0.1,
         0.1,
@@ -440,12 +1218,183 @@
         0.1,
         0.1,
         0.1
+      ],
+      "roast": [
+        0,
+        0,
+        0,
+        0,
+        0.8,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "contest": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "fundraise": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.7,
+        0.5,
+        0.3,
+        0.2,
+        0.1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
       ],
       "referral": [
         0,
         0,
+        0.05,
+        0.1,
+        0.15,
         0.2,
-        0.3,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
         0.1,
         0.1,
         0.1,
@@ -462,61 +1411,839 @@
         0.1,
         0.1
       ],
-      "seo_1770668823495": [
-        0.1,
-        0.15000000000000002,
-        0.2,
-        0.25,
-        0.30000000000000004,
-        0.35,
+      "paidads": [
+        0.5,
         0.4,
-        0.45000000000000007,
+        0.7,
+        0.7,
         0.5,
         0.5,
-        0.5,
-        0.5,
-        0.5,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
         0.1,
         0.1,
         0.1,
         0.1,
         0.1,
         0.1
+      ],
+      "spaces_on_x_1768552848819": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "calls_1on1": [
+        0,
+        0,
+        0,
+        0.3,
+        0.3,
+        0.2,
+        0.1,
+        0.1,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "autodm_engagers": [
+        0,
+        0,
+        0,
+        0.2,
+        0.3,
+        0.3,
+        0.1,
+        0.1,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "autodm_followers": [
+        0,
+        0,
+        0,
+        0.2,
+        0.3,
+        0.3,
+        0.1,
+        0.1,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "kol": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0.2,
+        0.25,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "seo_1768940912035": [
+        0.6,
+        0.6,
+        0.75,
+        0.8,
+        0.85,
+        0.9,
+        1,
+        0.3,
+        0.3,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "product_hunt_1768941159818": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.15,
+        0.1,
+        0.05,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "all_the_team_push_1768949748360": [
+        0,
+        0,
+        0,
+        0,
+        0.3,
+        0.15,
+        0.05,
+        0,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "activate_crm_contacts_1768949817560": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "telegram_outreach_1769595966486": [
+        0,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "partnership_1770126906731": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "twitter_strategy_1770143545810": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "airdrop_checker_1771319180473": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.7,
+        0.5,
+        0.2,
+        0.1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "growth_tool_q3_1771356186901": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.8,
+        0.2,
+        0.1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     }
   },
   "notes": [
     {
-      "date": "2026-01-01",
-      "text": "Replace this file with your own data"
+      "date": "2026-01-15T00:00:00.000Z",
+      "text": "Growth tools (Roast, Contest, Newsletter) start 10 days after launch"
+    },
+    {
+      "date": "2026-01-15T00:00:00.000Z",
+      "text": "Fundraise announcement PLANNED Feb 20 - major driver (2,700 activated)"
     }
   ],
+  "platforms": [
+    "app",
+    "telegram",
+    "both"
+  ],
+  "phases": [
+    {
+      "id": "prep",
+      "name": "Pre-Launch",
+      "dates": "Jan 15 - Jan 31",
+      "description": "Preparation and power user testing",
+      "emoji": "🔧",
+      "color": "#6b7280",
+      "channels": [
+        "powerusers"
+      ]
+    },
+    {
+      "id": "launch",
+      "name": "Launch Week",
+      "dates": "Feb 1 - Feb 7",
+      "description": "App launch and initial push",
+      "emoji": "🚀",
+      "color": "#3b82f6",
+      "channels": [
+        "powerusers",
+        "protocols"
+      ]
+    },
+    {
+      "id": "growth",
+      "name": "Growth Phase",
+      "dates": "Feb 8 - Feb 28",
+      "description": "Activation campaigns and fundraise",
+      "emoji": "📈",
+      "color": "#10b981",
+      "channels": [
+        "newsletter",
+        "fundraise",
+        "paidads"
+      ]
+    }
+  ],
+  "project": {
+    "name": "Otomato Growth Model",
+    "description": "User acquisition funnel model for Otomato DeFi Assistant - targeting 5,000 active users by March 2026",
+    "branding": {
+      "name": "Otomato",
+      "url": "https://otomato.xyz"
+    },
+    "goals": {
+      "primary": "5,000 active users",
+      "deadline": "March 2026",
+      "milestones": [
+        {
+          "name": "App Launch",
+          "date": "2026-02-01"
+        },
+        {
+          "name": "3,500 Users",
+          "date": "2026-02-28"
+        },
+        {
+          "name": "5,000 Users",
+          "date": "2026-03-31"
+        }
+      ]
+    }
+  },
+  "extendedMeta": {
+    "currentTelegram": 1437,
+    "currentApp": 0,
+    "targetMarch": 5000,
+    "deadlineMarch": "2026-03-31",
+    "appLaunch": "2026-02-01"
+  },
   "financial": {
     "settings": {
       "currency": "USD",
-      "projectionMonths": 12,
+      "useWeeklyProjection": true,
       "scenario": 1
     },
-    "activeUserPercent": 70,
     "b2c": {
       "enabled": true,
-      "launchDate": 2,
+      "launchDate": 8,
       "pricing": {
-        "monthly": 10,
+        "monthly": 49,
         "annual": 96,
         "annualDiscount": 20
       },
       "assumptions": {
-        "conversionRate": 3,
-        "churnRate": 5,
+        "conversionRate": 2,
+        "churnRate": 2,
         "daysToConvert": 14,
-        "activeUserPercent": 70
+        "activeUserPercent": 80
       }
     },
     "b2b": {
       "enabled": true,
-      "launchDate": 6,
-      "costPerUser": 0.4,
+      "launchDate": 3,
+      "costPerUser": 0.45,
       "assumptions": {
         "addressablePercent": 80
       }
@@ -543,310 +2270,796 @@
     },
     "campaigns": [
       {
-        "id": "campaign_1770666417050",
-        "name": "My first customer",
-        "client": "Google",
-        "status": "active",
+        "id": "campaign_001",
+        "name": "Nest beta",
+        "client": "Nest",
+        "status": "planned",
+        "notes": "",
+        "monthlyPlan": {
+          "2026-03": 1,
+          "2026-04": 1
+        }
+      },
+      {
+        "id": "campaign_002",
+        "name": "Dothype Promo",
+        "client": "Hyperliquid",
+        "status": "planned",
         "notes": "",
         "monthlyPlan": {
           "2026-02": 1,
-          "2026-03": 1,
-          "2026-04": 1,
-          "2026-06": 1
+          "2026-03": 2
+        }
+      },
+      {
+        "id": "campaign_1769882910990",
+        "name": "Projections",
+        "client": "New Client",
+        "status": "planned",
+        "notes": "",
+        "monthlyPlan": {
+          "2026-03": 0,
+          "2026-04": 2,
+          "2026-05": 5,
+          "2026-06": 6,
+          "2026-07": 6,
+          "2026-08": 8,
+          "2026-09": 9,
+          "2026-10": 10,
+          "2026-11": 11,
+          "2026-12": 15
         }
       }
     ],
+    "monthlyProjections": [],
     "customStreams": [
       {
         "id": "b2c-premium",
         "name": "B2C Premium",
         "type": "user_based",
-        "weeklyPrice": 2.5,
-        "conversionRate": 3,
-        "churnRate": 5,
-        "launchWeek": 2,
+        "weeklyPrice": 29,
+        "conversionRate": 1.5,
+        "churnRate": 2,
+        "launchWeek": 13,
         "enabled": true,
         "color": "#6366f1",
-        "_premiumUsers": 259,
-        "costPerUser": 0.4,
-        "monthlyPlan": {}
+        "_premiumUsers": 884
       },
       {
         "id": "campaign-revenue",
-        "name": "Campaign Revenue",
+        "name": "B2B Campaign",
         "type": "campaign",
-        "costPerUser": 0.4,
+        "costPerUser": 1,
         "monthlyPlan": {
-          "0": 0,
           "1": 0,
           "2": 1,
           "3": 2,
           "4": 3,
-          "5": 4
+          "5": 4,
+          "6": 5,
+          "7": 6,
+          "8": 7,
+          "9": 8,
+          "10": 9,
+          "11": 11
         },
-        "launchWeek": 6,
-        "enabled": true,
-        "color": "#22c55e",
-        "_premiumUsers": 0
-      },
-      {
-        "id": "stream_1770665507257",
-        "name": "Partnership",
-        "type": "fixed",
         "launchWeek": 3,
         "enabled": true,
-        "color": "#f59e0b",
-        "monthlyAmount": 100,
-        "_premiumUsers": 0
+        "color": "#22c55e",
+        "_premiumUsers": 0,
+        "weeklyPrice": 0.5,
+        "conversionRate": 3,
+        "churnRate": 2,
+        "monthlyUseRate": {
+          "2": 50,
+          "3": 40,
+          "4": 40,
+          "5": 40,
+          "6": 30,
+          "7": 30,
+          "8": 30,
+          "9": 20,
+          "10": 20,
+          "11": 20
+        }
       }
     ],
     "expenses": [
       {
-        "id": "expense_1770666372499",
-        "name": "Servers",
-        "monthlyAmount": 50,
+        "id": "expense_salaries",
+        "name": "Salaries",
+        "monthlyAmount": 36450,
         "launchWeek": 0,
         "enabled": true,
-        "notes": "",
-        "monthlyRatio": 1
+        "monthlyRatio": 1.03
       },
       {
-        "id": "expense_1770666392932",
-        "name": "Salaries",
-        "monthlyAmount": 2000,
+        "id": "expense_subscriptions",
+        "name": "Subscriptions / servers / Data",
+        "monthlyAmount": 2050,
         "launchWeek": 0,
         "enabled": true,
+        "monthlyRatio": 1.05
+      },
+      {
+        "id": "expense_legal",
+        "name": "Legal",
+        "monthlyAmount": 833,
+        "launchWeek": 0,
+        "enabled": true
+      },
+      {
+        "id": "expense_conf_travel",
+        "name": "Conf/Travel/Other",
+        "monthlyAmount": 1500,
+        "launchWeek": 0,
+        "enabled": true
+      },
+      {
+        "id": "expense_1771325315180",
+        "name": "marketing expense",
+        "monthlyAmount": 500,
+        "launchWeek": 2,
+        "enabled": true,
         "notes": "",
-        "monthlyRatio": 1
+        "monthlyRatio": 1.45
       }
     ]
   },
   "snapshots": [
     {
-      "id": "snap_1770665413954",
-      "date": "2026-02-09T19:30:13.953Z",
-      "label": "Feb 9 plan",
+      "id": "snap_1771367677712",
+      "date": "2026-02-17T22:34:37.712Z",
+      "label": "Feb 17 plan",
       "visible": true,
       "projection": [
         {
-          "week": "W1",
-          "activeUsers": 546
+          "week": "Pre-1",
+          "activeUsers": 1448,
+          "weeklyRevenue": 0,
+          "totalExpenses": 10209,
+          "weeklyEBITDA": -10209
         },
         {
-          "week": "W2",
-          "activeUsers": 650
+          "week": "Pre-2",
+          "activeUsers": 1465,
+          "weeklyRevenue": 0,
+          "totalExpenses": 10209,
+          "weeklyEBITDA": -10209
         },
         {
-          "week": "W3",
-          "activeUsers": 789
+          "week": "Launch",
+          "activeUsers": 1515,
+          "weeklyRevenue": 0,
+          "totalExpenses": 10334,
+          "weeklyEBITDA": -10334
         },
         {
-          "week": "W4",
-          "activeUsers": 939
+          "week": "Feb-2",
+          "activeUsers": 1566,
+          "weeklyRevenue": 0,
+          "totalExpenses": 10334,
+          "weeklyEBITDA": -10334
         },
         {
-          "week": "W5",
-          "activeUsers": 1030
+          "week": "Feb-3",
+          "activeUsers": 1680,
+          "weeklyRevenue": 0,
+          "totalExpenses": 10632,
+          "weeklyEBITDA": -10632
         },
         {
-          "week": "W6",
-          "activeUsers": 1127
-        },
-        {
-          "week": "W7",
-          "activeUsers": 1229
-        },
-        {
-          "week": "W8",
-          "activeUsers": 1337
-        },
-        {
-          "week": "W9",
-          "activeUsers": 1452
-        },
-        {
-          "week": "W10",
-          "activeUsers": 1573
-        },
-        {
-          "week": "W11",
-          "activeUsers": 1701
-        },
-        {
-          "week": "W12",
-          "activeUsers": 1837
-        },
-        {
-          "week": "W13",
-          "activeUsers": 1982
-        },
-        {
-          "week": "W14",
-          "activeUsers": 2135
-        }
-      ]
-    },
-    {
-      "id": "snap_1770666046936",
-      "date": "2026-02-09T19:40:46.936Z",
-      "label": "Feb 9 plan",
-      "visible": true,
-      "projection": [
-        {
-          "week": "W1",
-          "activeUsers": 533
-        },
-        {
-          "week": "W2",
-          "activeUsers": 632
-        },
-        {
-          "week": "W3",
-          "activeUsers": 784
-        },
-        {
-          "week": "W4",
-          "activeUsers": 955
-        },
-        {
-          "week": "W5",
-          "activeUsers": 1083
+          "week": "Feb-4",
+          "activeUsers": 1849,
+          "weeklyRevenue": 0,
+          "totalExpenses": 10632,
+          "weeklyEBITDA": -10632
         },
         {
           "week": "W6",
-          "activeUsers": 1227
+          "activeUsers": 1981,
+          "weeklyRevenue": 396,
+          "totalExpenses": 10688,
+          "weeklyEBITDA": -10292
         },
         {
           "week": "W7",
-          "activeUsers": 1388
+          "activeUsers": 2071,
+          "weeklyRevenue": 414,
+          "totalExpenses": 10688,
+          "weeklyEBITDA": -10274
         },
         {
           "week": "W8",
-          "activeUsers": 1566
+          "activeUsers": 3994,
+          "weeklyRevenue": 799,
+          "totalExpenses": 10996,
+          "weeklyEBITDA": -10197
         },
         {
           "week": "W9",
-          "activeUsers": 1762
+          "activeUsers": 5400,
+          "weeklyRevenue": 1080,
+          "totalExpenses": 10996,
+          "weeklyEBITDA": -9916
         },
         {
           "week": "W10",
-          "activeUsers": 1970
+          "activeUsers": 6135,
+          "weeklyRevenue": 2454,
+          "totalExpenses": 11078,
+          "weeklyEBITDA": -8624
         },
         {
           "week": "W11",
-          "activeUsers": 2191
+          "activeUsers": 6608,
+          "weeklyRevenue": 2643,
+          "totalExpenses": 11078,
+          "weeklyEBITDA": -8435
         },
         {
           "week": "W12",
-          "activeUsers": 2426
+          "activeUsers": 6821,
+          "weeklyRevenue": 2729,
+          "totalExpenses": 11396,
+          "weeklyEBITDA": -8667
         },
         {
           "week": "W13",
-          "activeUsers": 2675
+          "activeUsers": 6921,
+          "weeklyRevenue": 4141,
+          "totalExpenses": 11396,
+          "weeklyEBITDA": -7255
         },
         {
           "week": "W14",
-          "activeUsers": 2939
+          "activeUsers": 7020,
+          "weeklyRevenue": 6956,
+          "totalExpenses": 11514,
+          "weeklyEBITDA": -4558
         },
         {
           "week": "W15",
-          "activeUsers": 3219
+          "activeUsers": 7120,
+          "weeklyRevenue": 8388,
+          "totalExpenses": 11514,
+          "weeklyEBITDA": -3126
         },
         {
           "week": "W16",
-          "activeUsers": 3515
+          "activeUsers": 7256,
+          "weeklyRevenue": 9891,
+          "totalExpenses": 11843,
+          "weeklyEBITDA": -1952
         },
         {
           "week": "W17",
-          "activeUsers": 3829
+          "activeUsers": 7356,
+          "weeklyRevenue": 11323,
+          "totalExpenses": 11843,
+          "weeklyEBITDA": -520
         },
         {
           "week": "W18",
-          "activeUsers": 4162
+          "activeUsers": 7456,
+          "weeklyRevenue": 14295,
+          "totalExpenses": 12015,
+          "weeklyEBITDA": 2280
         },
         {
           "week": "W19",
-          "activeUsers": 4514
+          "activeUsers": 7557,
+          "weeklyRevenue": 15797,
+          "totalExpenses": 12015,
+          "weeklyEBITDA": 3782
+        },
+        {
+          "week": "W20",
+          "activeUsers": 7658,
+          "weeklyRevenue": 17347,
+          "totalExpenses": 12354,
+          "weeklyEBITDA": 4993
+        },
+        {
+          "week": "W21",
+          "activeUsers": 7759,
+          "weeklyRevenue": 18898,
+          "totalExpenses": 12354,
+          "weeklyEBITDA": 6544
+        },
+        {
+          "week": "W22",
+          "activeUsers": 7860,
+          "weeklyRevenue": 20449,
+          "totalExpenses": 12602,
+          "weeklyEBITDA": 7847
+        },
+        {
+          "week": "W23",
+          "activeUsers": 7962,
+          "weeklyRevenue": 22050,
+          "totalExpenses": 12602,
+          "weeklyEBITDA": 9448
+        },
+        {
+          "week": "W24",
+          "activeUsers": 8064,
+          "weeklyRevenue": 23601,
+          "totalExpenses": 12952,
+          "weeklyEBITDA": 10649
+        },
+        {
+          "week": "W25",
+          "activeUsers": 8202,
+          "weeklyRevenue": 25231,
+          "totalExpenses": 12952,
+          "weeklyEBITDA": 12279
+        },
+        {
+          "week": "W26",
+          "activeUsers": 8305,
+          "weeklyRevenue": 30154,
+          "totalExpenses": 13313,
+          "weeklyEBITDA": 16841
+        },
+        {
+          "week": "W27",
+          "activeUsers": 8408,
+          "weeklyRevenue": 31845,
+          "totalExpenses": 13313,
+          "weeklyEBITDA": 18532
+        },
+        {
+          "week": "W28",
+          "activeUsers": 8511,
+          "weeklyRevenue": 33538,
+          "totalExpenses": 13673,
+          "weeklyEBITDA": 19865
+        },
+        {
+          "week": "W29",
+          "activeUsers": 8614,
+          "weeklyRevenue": 35229,
+          "totalExpenses": 13673,
+          "weeklyEBITDA": 21556
+        },
+        {
+          "week": "W30",
+          "activeUsers": 8754,
+          "weeklyRevenue": 38715,
+          "totalExpenses": 14196,
+          "weeklyEBITDA": 24519
+        },
+        {
+          "week": "W31",
+          "activeUsers": 10058,
+          "weeklyRevenue": 42354,
+          "totalExpenses": 14196,
+          "weeklyEBITDA": 28158
+        },
+        {
+          "week": "W32",
+          "activeUsers": 10465,
+          "weeklyRevenue": 44835,
+          "totalExpenses": 14568,
+          "weeklyEBITDA": 30267
+        },
+        {
+          "week": "W33",
+          "activeUsers": 10723,
+          "weeklyRevenue": 47156,
+          "totalExpenses": 14568,
+          "weeklyEBITDA": 32588
+        },
+        {
+          "week": "W34",
+          "activeUsers": 10832,
+          "weeklyRevenue": 51436,
+          "totalExpenses": 15326,
+          "weeklyEBITDA": 36110
+        },
+        {
+          "week": "W35",
+          "activeUsers": 10941,
+          "weeklyRevenue": 53619,
+          "totalExpenses": 15326,
+          "weeklyEBITDA": 38293
+        },
+        {
+          "week": "W36",
+          "activeUsers": 11050,
+          "weeklyRevenue": 55753,
+          "totalExpenses": 15711,
+          "weeklyEBITDA": 40042
+        },
+        {
+          "week": "W38",
+          "activeUsers": 11310,
+          "weeklyRevenue": 58178,
+          "totalExpenses": 15711,
+          "weeklyEBITDA": 42467
+        },
+        {
+          "week": "W39",
+          "activeUsers": 11570,
+          "weeklyRevenue": 62966,
+          "totalExpenses": 16810,
+          "weeklyEBITDA": 46156
+        },
+        {
+          "week": "W40",
+          "activeUsers": 11831,
+          "weeklyRevenue": 65543,
+          "totalExpenses": 16810,
+          "weeklyEBITDA": 48733
+        },
+        {
+          "week": "W41",
+          "activeUsers": 12093,
+          "weeklyRevenue": 68121,
+          "totalExpenses": 17206,
+          "weeklyEBITDA": 50915
+        },
+        {
+          "week": "W42",
+          "activeUsers": 12355,
+          "weeklyRevenue": 70749,
+          "totalExpenses": 17206,
+          "weeklyEBITDA": 53543
+        },
+        {
+          "week": "W43",
+          "activeUsers": 12618,
+          "weeklyRevenue": 78474,
+          "totalExpenses": 18800,
+          "weeklyEBITDA": 59674
+        },
+        {
+          "week": "W44",
+          "activeUsers": 12882,
+          "weeklyRevenue": 81360,
+          "totalExpenses": 18800,
+          "weeklyEBITDA": 62560
+        },
+        {
+          "week": "W45",
+          "activeUsers": 13146,
+          "weeklyRevenue": 84292,
+          "totalExpenses": 19210,
+          "weeklyEBITDA": 65082
+        },
+        {
+          "week": "W46",
+          "activeUsers": 13411,
+          "weeklyRevenue": 87227,
+          "totalExpenses": 19210,
+          "weeklyEBITDA": 68017
         }
       ]
     }
   ],
   "actuals": [
     {
-      "week": "W1",
-      "activeUsers": null
+      "week": "Pre-1",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
-      "week": "W2",
-      "activeUsers": null
+      "week": "Pre-2",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
-      "week": "W3",
-      "activeUsers": null
+      "week": "Launch",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
-      "week": "W4",
-      "activeUsers": null
+      "week": "Feb-2",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
-      "week": "W5",
-      "activeUsers": null
+      "week": "Feb-3",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "Feb-4",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W6",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W7",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W8",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W9",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W10",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W11",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W12",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W13",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W14",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W15",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W16",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W17",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W18",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     },
     {
       "week": "W19",
-      "activeUsers": null
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W20",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W21",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W22",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W23",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W24",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W25",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W26",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W27",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W28",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W29",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W30",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W31",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W32",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W33",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W34",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W35",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W36",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W38",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W39",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W40",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W41",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W42",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W43",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W44",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W45",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
+    },
+    {
+      "week": "W46",
+      "activeUsers": null,
+      "revenue": null,
+      "expenses": null,
+      "ebitda": null
     }
   ]
 }

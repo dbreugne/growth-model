@@ -1844,7 +1844,7 @@
                                 <span class="tooltip-icon">?</span>
                                 <div class="tooltip-content">
                                     <strong>Projected Revenue</strong>
-                                    Total expected revenue from this campaign. Calculated as Average Active Users × Cost per User × Total Activations.
+                                    Total expected revenue from this campaign. Calculated as Active Users × % Users Targeted × Cost per User × Activations.
                                 </div>
                             </div>
                         </div>
@@ -1936,7 +1936,7 @@
                         <div id="campaign-monthly-plan" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
                     </div>
                     <div style="padding: 0 16px 16px; font-size: 11px; color: var(--text-muted);">
-                        <strong>Revenue calculation:</strong> Active Users × $<span id="campaign-cost-per-user">0.40</span> × Multiplier = Monthly Revenue
+                        <strong>Revenue calculation:</strong> Active Users × % Users Targeted × $<span id="campaign-cost-per-user">0.40</span> × Activations = Monthly Revenue
                     </div>
                 </div>
 
@@ -5291,6 +5291,7 @@
                     type: 'campaign',
                     costPerUser: b2b.costPerUser || 0.4,
                     monthlyPlan: monthlyPlan,
+                    monthlyUseRate: {},
                     launchWeek: b2b.launchDate || 6,
                     enabled: b2b.enabled !== false,
                     color: '#22c55e'
@@ -5355,7 +5356,9 @@
                             const weekMonth = week.month;
                             const activations = (stream.monthlyPlan && stream.monthlyPlan[String(weekMonth)]) || 0;
                             const weeksInMonth = weeklyGrowth.filter(w => w.month === weekMonth).length;
-                            amount = weeksInMonth > 0 ? Math.round(activeUsers * (stream.costPerUser || 0) * activations / weeksInMonth) : 0;
+                            const monthlyUseRate = stream.monthlyUseRate || {};
+                            const useRate = (monthlyUseRate[String(weekMonth)] != null ? monthlyUseRate[String(weekMonth)] : 100) / 100;
+                            amount = weeksInMonth > 0 ? Math.round(activeUsers * useRate * (stream.costPerUser || 0) * activations / weeksInMonth) : 0;
                         }
                         customRevenues[stream.id] = amount;
                         totalCustomRevenue += amount;
@@ -5679,6 +5682,7 @@
 
             const html = campaigns.map(c => {
                 const monthlyPlan = c.monthlyPlan || {};
+                const monthlyUseRate = c.monthlyUseRate || {};
 
                 // Calculate projected revenue
                 let projectedRevenue = 0;
@@ -5690,12 +5694,13 @@
                     if (multiplier > 0) {
                         activeMonths++;
                         totalActivations += multiplier;
+                        const useRate = (monthlyUseRate[monthKey] != null ? monthlyUseRate[monthKey] : 100) / 100;
                         const modelMonth = campaignMonthToModelMonth(monthKey);
                         const monthWeeks = projections.filter(w => w.month === modelMonth);
                         const avgUsers = monthWeeks.length > 0
                             ? monthWeeks.reduce((sum, w) => sum + w.activeUsers, 0) / monthWeeks.length
                             : 0;
-                        projectedRevenue += avgUsers * costPerUser * multiplier;
+                        projectedRevenue += avgUsers * useRate * costPerUser * multiplier;
                     }
                 });
 
@@ -5783,15 +5788,17 @@
             const projections = calculateFinancialProjections();
             let projectedRevenue = 0;
             const availableMonths = getAvailableMonths();
+            const campaignUseRate = campaign.monthlyUseRate || {};
             availableMonths.forEach(m => {
                 const multiplier = parseFloat(monthlyPlan[m.key]) || 0;
                 if (multiplier > 0) {
+                    const useRate = (campaignUseRate[m.key] != null ? campaignUseRate[m.key] : 100) / 100;
                     // Get average active users for this month
                     const monthWeeks = projections.filter(w => w.month === m.modelMonth);
                     const avgUsers = monthWeeks.length > 0
                         ? monthWeeks.reduce((sum, w) => sum + w.activeUsers, 0) / monthWeeks.length
                         : 0;
-                    projectedRevenue += avgUsers * costPerUser * multiplier;
+                    projectedRevenue += avgUsers * useRate * costPerUser * multiplier;
                 }
             });
 
@@ -5815,9 +5822,13 @@
             const planContainer = document.getElementById('campaign-monthly-plan');
             let planHtml = '';
 
+            const monthlyUseRate = campaign.monthlyUseRate || {};
+
             availableMonths.forEach(m => {
                 const value = monthlyPlan[m.key] || 0;
                 const multiplier = parseFloat(value) || 0;
+                const useRateVal = monthlyUseRate[m.key] != null ? monthlyUseRate[m.key] : 100;
+                const useRateFrac = useRateVal / 100;
                 const isActive = multiplier > 0;
 
                 // Calculate revenue for this month
@@ -5825,7 +5836,7 @@
                 const avgUsers = monthWeeks.length > 0
                     ? monthWeeks.reduce((sum, w) => sum + w.activeUsers, 0) / monthWeeks.length
                     : 0;
-                const monthRevenue = avgUsers * costPerUser * multiplier;
+                const monthRevenue = avgUsers * useRateFrac * costPerUser * multiplier;
 
                 planHtml += `
                     <div style="background: var(--bg-card); border: 1px solid ${isActive ? 'var(--success)' : 'var(--border)'}; border-radius: 8px; padding: 12px; min-width: 90px; text-align: center;">
@@ -5837,9 +5848,18 @@
                             style="width: 50px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 4px; color: var(--text-primary); font-size: 14px; text-align: center;"
                             onchange="updateCampaignMonthlyPlan('${m.key}', this.value)">
                         <div style="font-size: 9px; color: var(--text-muted); margin-top: 4px;">activations</div>
+                        <div style="margin-top: 6px;">
+                            <input type="number"
+                                value="${useRateVal}"
+                                min="0" max="100"
+                                step="5"
+                                style="width: 50px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 4px; color: var(--text-primary); font-size: 12px; text-align: center;"
+                                onchange="updateCampaignMonthlyUseRate('${m.key}', this.value)">
+                            <div style="font-size: 9px; color: var(--text-muted); margin-top: 2px;">% users</div>
+                        </div>
                         <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border);">
                             <div style="font-size: 12px; font-weight: 600; color: ${isActive ? 'var(--success)' : 'var(--text-muted)'};">$${fmt(Math.round(monthRevenue))}</div>
-                            <div style="font-size: 8px; color: var(--text-muted);">${fmt(Math.round(avgUsers))} users</div>
+                            <div style="font-size: 8px; color: var(--text-muted);">${fmt(Math.round(avgUsers * useRateFrac))} of ${fmt(Math.round(avgUsers))} users</div>
                         </div>
                     </div>
                 `;
@@ -5881,6 +5901,25 @@
             save();
 
             // Re-render to update stats
+            renderCampaignDetail(currentCampaignId);
+            showToast('Saved', 'success');
+        }
+
+        function updateCampaignMonthlyUseRate(monthKey, value) {
+            if (!currentCampaignId) return;
+            initFinancialData();
+
+            const campaign = data.financial.campaigns.find(c => c.id === currentCampaignId);
+            if (!campaign) return;
+
+            if (!campaign.monthlyUseRate) {
+                campaign.monthlyUseRate = {};
+            }
+
+            const numValue = Math.min(100, Math.max(0, parseFloat(value) || 0));
+            campaign.monthlyUseRate[monthKey] = numValue;
+            save();
+
             renderCampaignDetail(currentCampaignId);
             showToast('Saved', 'success');
         }
@@ -5992,6 +6031,7 @@
             } else if (streamType === 'campaign') {
                 stream.costPerUser = parseFloat(result.costPerUser) || 0;
                 stream.monthlyPlan = {};
+                stream.monthlyUseRate = {};
             }
 
             data.financial.customStreams.push(stream);
@@ -6096,9 +6136,11 @@
             if (sType === 'campaign') {
                 const months = [...new Set(projections.map(w => w.month))].sort((a, b) => a - b);
                 const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const streamUseRate = stream.monthlyUseRate || {};
                 let planHtml = '';
                 months.forEach(monthNum => {
                     const val = (stream.monthlyPlan && stream.monthlyPlan[String(monthNum)]) || 0;
+                    const useRateVal = streamUseRate[String(monthNum)] != null ? streamUseRate[String(monthNum)] : 100;
                     const monthLabel = monthNames[monthNum] || `M${monthNum}`;
                     planHtml += `
                         <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; min-width: 90px; text-align: center;">
@@ -6107,6 +6149,12 @@
                                    style="width: 60px; text-align: center; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 4px; color: var(--text-primary); font-size: 14px;"
                                    onchange="updateStreamMonthlyPlan('${String(monthNum)}', this.value)">
                             <div style="font-size: 9px; color: var(--text-muted); margin-top: 4px;">activations</div>
+                            <div style="margin-top: 6px;">
+                                <input type="number" value="${useRateVal}" min="0" max="100" step="5"
+                                       style="width: 60px; text-align: center; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 4px; padding: 4px; color: var(--text-primary); font-size: 12px;"
+                                       onchange="updateStreamMonthlyUseRate('${String(monthNum)}', this.value)">
+                                <div style="font-size: 9px; color: var(--text-muted); margin-top: 2px;">% users</div>
+                            </div>
                         </div>
                     `;
                 });
@@ -6161,6 +6209,7 @@
                 } else if (value === 'campaign') {
                     if (!stream.costPerUser) stream.costPerUser = 0.40;
                     if (!stream.monthlyPlan) stream.monthlyPlan = {};
+                    if (!stream.monthlyUseRate) stream.monthlyUseRate = {};
                 }
             } else {
                 stream[field] = value;
@@ -6180,6 +6229,20 @@
 
             if (!stream.monthlyPlan) stream.monthlyPlan = {};
             stream.monthlyPlan[monthKey] = parseFloat(value) || 0;
+            save();
+            renderStreamDetail(currentStreamId);
+            showToast('Saved', 'success');
+        }
+
+        function updateStreamMonthlyUseRate(monthKey, value) {
+            if (!currentStreamId) return;
+            initFinancialData();
+
+            const stream = data.financial.customStreams.find(s => s.id === currentStreamId);
+            if (!stream) return;
+
+            if (!stream.monthlyUseRate) stream.monthlyUseRate = {};
+            stream.monthlyUseRate[monthKey] = Math.min(100, Math.max(0, parseFloat(value) || 0));
             save();
             renderStreamDetail(currentStreamId);
             showToast('Saved', 'success');
